@@ -1,21 +1,9 @@
+Delegação de eventos
 
-Dor da performance: Repaint e reflow
+quando trabalhamos com cliques dinamicos corremos um grande risco de não termos a classe no momento da criação do evento . 
+jquery para estes casos trabalha muito bem. 
 
-
-
-
-browser renderiza tudo via string , ele faz a leitura do cabeçalho e verifica que é um html e monta a  dom
-
-
-paint e reflow 
-
-reflow => recalcular os elementos de uma página 
-
-verificar sobre will-change do css 
-
-os frameworks atuais só alteram o necessário da página com o virtual dom 
-
-https://developers.google.com/speed/
+porém no modelo do vanilla js olharemos sempre para o body pois garantimos que por ele conseguiremos olhar para os filhos caso tenha 
+a classe ou não 
 
 
-javascript > style > layout > paint > composite

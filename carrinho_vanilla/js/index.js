@@ -81,7 +81,7 @@ function renderProduct(product){
                     <h5 class="card-title">${product.titulo}</h5>
                     <small>R$ ${product.preço}</small>
                     <p class="card-text">${product.descrição}</p>
-                    <button class="btn btn-primary">Adicionar </button>
+                    <button class="btn btn-primary btn-add">Adicionar </button>
                 </div>
             </div>
         </div>
@@ -113,6 +113,13 @@ function renderCarrinho(carrinhoItens){
  document.querySelector(".carrinho__itens").innerHTML = arr ; 
 
 }
+
+
+document.body.addEventListener("click", function(event){
+    const elemento = event.target
+
+    console.log(elemento.classList.contains('btn-add'))
+})
 
 renderProducts(products)
 renderCarrinho(carrinhoItens);
