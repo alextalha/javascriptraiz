@@ -84,7 +84,7 @@ function renderItemCarrinho(itemCarrinho){
         <div class="card carrinho__item">
             <div class="card-body">
                 <h5 class="card-title">${itemCarrinho.titulo}</h5>
-                <p class="card-text">Preço unidade : R$ ${itemCarrinho.preço} | Quantidade: ${itemCarrinho.quantidade} </p>
+                <p class="card-text">Preço unidade : R$ ${itemCarrinho.preço * itemCarrinho.quantidade } | Quantidade: ${itemCarrinho.quantidade} </p>
                 <p class="card-text">${itemCarrinho.descrição}</p>
                 <button data-value="${itemCarrinho.preço} " class="btn btn-danger btn-sm">Remover </button>
             </div>
@@ -102,21 +102,38 @@ function renderCarrinho(carrinhoItens){
 
 }
 
+function renderCarrinhoValorTotal(products){
+
+    let total = 0;
+    for(let product in products){
+        total = parseInt(total + ( products[product].preço * products[product].quantidade ) )
+    }
+
+    document.querySelector(".carrinho__total").innerHTML = (`<h6> Total <strong>R$ ${total} </strong><h6>`)
+
+}
+
+function AdicionaItemCarrinho(produto){
+    if(!carrinhoItens[produto.id]){
+        carrinhoItens[produto.id] = produto
+        carrinhoItens[produto.id].quantidade = 0
+    }
+
+    ++carrinhoItens[produto.id].quantidade
+
+    renderCarrinho(carrinhoItens);
+    renderCarrinhoValorTotal(carrinhoItens)
+}
+
+
 document.body.addEventListener("click", function(event){
     const elemento = event.target
     if(elemento.classList.contains('btn-add')){
         const index = parseInt(elemento.getAttribute('data-index'))
         const produto = products[index];
         
+        AdicionaItemCarrinho(produto)
 
-        if(!carrinhoItens[produto.id]){
-            carrinhoItens[produto.id] = produto
-            carrinhoItens[produto.id].quantidade = 1
-
-            renderCarrinho(carrinhoItens);
-
-        }
-        
     }
 
 

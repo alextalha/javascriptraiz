@@ -1,1 +1,1 @@
-Dor da reatividade:
+Renderizando quantidade e total do carrinho
