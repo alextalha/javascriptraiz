@@ -1,1 +1,1 @@
-Renderizando quantidade e total do carrinho
+Finalizando carrinho vanilla

@@ -86,7 +86,7 @@ function renderItemCarrinho(itemCarrinho){
                 <h5 class="card-title">${itemCarrinho.titulo}</h5>
                 <p class="card-text">Preço unidade : R$ ${itemCarrinho.preço * itemCarrinho.quantidade } | Quantidade: ${itemCarrinho.quantidade} </p>
                 <p class="card-text">${itemCarrinho.descrição}</p>
-                <button data-value="${itemCarrinho.preço} " class="btn btn-danger btn-sm">Remover </button>
+                <button data-produto-id="${itemCarrinho.id}"data-value="${itemCarrinho.preço} " class="btn btn-danger btn-sm btn-remove">Remover</button>
             </div>
         </div>
         `
@@ -113,6 +113,10 @@ function renderCarrinhoValorTotal(products){
 
 }
 
+function removeItem(){
+
+}
+
 function AdicionaItemCarrinho(produto){
     if(!carrinhoItens[produto.id]){
         carrinhoItens[produto.id] = produto
@@ -133,9 +137,21 @@ document.body.addEventListener("click", function(event){
         const produto = products[index];
         
         AdicionaItemCarrinho(produto)
-
     }
 
+    if(elemento.classList.contains('btn-remove')){ 
+        const produtoId = elemento.getAttribute("data-produto-id")
+   
+        if(carrinhoItens[produtoId].quantidade <= 1 ){
+            delete carrinhoItens[produtoId]
+        }else{
+            --carrinhoItens[produtoId].quantidade
+        }
+
+        renderCarrinho(carrinhoItens);
+        renderCarrinhoValorTotal(carrinhoItens)
+
+    }
 
 })
 
