@@ -67,4 +67,31 @@ function renderProduct(product){
 
 }
 
+
+function renderItemCarrinho(){
+        return `
+        <div class="card carrinho__item">
+            <div class="card-body">
+                <h5 class="card-title">JS Raiz para FW</h5>
+                <p class="card-text">Preço unidade : R$300,00 | Quantidade: 1 </p>
+                <p class="card-text">O melhor curso do mundo.</p>
+                <button data-value="300" class="btn btn-danger btn-sm">Remover </button>
+            </div>
+        </div>
+        `
+}
+
+function renderCarrinho(){
+    let arr = ""
+    for(let i = 0 ; i < 3 ; i++){
+       arr = arr +  renderItemCarrinho()
+    }
+
+   document.querySelector(".carrinho__itens").innerHTML = arr ; 
+
+}
+
 renderProducts(products)
+renderCarrinho();
+
+
