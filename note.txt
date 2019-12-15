@@ -1,9 +1,1 @@
-Delegação de eventos
-
-quando trabalhamos com cliques dinamicos corremos um grande risco de não termos a classe no momento da criação do evento . 
-jquery para estes casos trabalha muito bem. 
-
-porém no modelo do vanilla js olharemos sempre para o body pois garantimos que por ele conseguiremos olhar para os filhos caso tenha 
-a classe ou não 
-
-
+Dor da reatividade:
