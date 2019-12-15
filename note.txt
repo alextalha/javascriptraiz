@@ -1,48 +1,8 @@
-Vamos usar um identificador para um acesso mais rápido a nossa collection.
-em vez de usar array de objeto iremos normalizar os dados com chave no objeto 
+
+Renderizando itens do carrinho [PARTE 2]
 
 
-em vez disso 
+iremos iterar o loop de objetos com for in devido a termos o id da chave 
 
-
-let products = [
-    { 
-    "imagem" : "https://lorempixel.com/500/300",
-    "titulo" :  "Js Raiz 1",
-    "preço" : 300,
-    "descrição" : "O melhor curso de Javascript 1",
-},
-{ 
-    "imagem" : "https://lorempixel.com/500/300",
-    "titulo" :  "Js Raiz 2",
-    "preço" : 301,
-    "descrição" : "O melhor curso de Javascript 2",
-}
-]
-
-iremos fazer isso :
-
-
-let produts = {
-
-    "123" :  { 
-        "id" : 123    
-        "imagem" : "https://lorempixel.com/500/300",
-        "titulo" :  "Js Raiz 1",
-        "preço" : 300,
-        "descrição" : "O melhor curso de Javascript 1",
-    },
-
-    567 : {
-        "id" : 567 
-        "imagem" : "https://lorempixel.com/500/300",
-        "titulo" :  "Js Raiz 2",
-        "preço" : 301,
-        "descrição" : "O melhor curso de Javascript 2",
-    },
-}
-
-
-forma muito utilizada pelo graphql
 
 

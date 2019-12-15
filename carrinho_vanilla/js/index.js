@@ -37,6 +37,28 @@ let products = [
 },
 ]
 
+
+let carrinhoItens = {
+
+    "bbc123" : {
+        id : "bbc123",
+        nome : "js raiz para node",
+        preco : 1200,
+        descricao : " O melhor curso de todos",
+        imagem : "https://lorempixel.com/500/300"
+
+    },
+    "cbc123" : {
+        id : "bbc123",
+        nome : "Programação funcional com JS",
+        preco : 500,
+        descricao : " O melhor funcional de todos",
+        imagem : "https://lorempixel.com/500/300"
+
+    },
+}
+
+
 function renderProducts(products) {
     let arr = "";
     for(let i = 0; i < products.length; i++  ){
@@ -68,30 +90,31 @@ function renderProduct(product){
 }
 
 
-function renderItemCarrinho(){
+function renderItemCarrinho(itemCarrinho){
+
         return `
         <div class="card carrinho__item">
             <div class="card-body">
-                <h5 class="card-title">JS Raiz para FW</h5>
-                <p class="card-text">Preço unidade : R$300,00 | Quantidade: 1 </p>
-                <p class="card-text">O melhor curso do mundo.</p>
+                <h5 class="card-title">${itemCarrinho.nome}</h5>
+                <p class="card-text">Preço unidade : R$ ${itemCarrinho.preco} | Quantidade: 1 </p>
+                <p class="card-text">${itemCarrinho.descricao}</p>
                 <button data-value="300" class="btn btn-danger btn-sm">Remover </button>
             </div>
         </div>
         `
 }
 
-function renderCarrinho(){
-    let arr = ""
-    for(let i = 0 ; i < 3 ; i++){
-       arr = arr +  renderItemCarrinho()
+function renderCarrinho(carrinhoItens){
+    let arr  = ""
+    for(carrinho in carrinhoItens){
+       arr = arr +  renderItemCarrinho(carrinhoItens[carrinho])
     }
 
-   document.querySelector(".carrinho__itens").innerHTML = arr ; 
+ document.querySelector(".carrinho__itens").innerHTML = arr ; 
 
 }
 
 renderProducts(products)
-renderCarrinho();
+renderCarrinho(carrinhoItens);
 
 
