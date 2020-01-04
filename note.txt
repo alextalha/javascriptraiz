@@ -1,1 +1,12 @@
-Finalizando carrinho vanilla
+Análise documentação React
+
+O componente deve ser apenas visual desacoplado de outros components sem regra de negocio 
+
+gerenciamento de estado que deverá ter as regras de negócio
+
+pt-br.reactjs.org/docs/hello-world
+
+  
+  react é e não é um framework 
+
+  
