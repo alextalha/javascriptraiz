@@ -1,7 +1,10 @@
 
 function AppComponent(){
     return (
-        React.createElement('h1',null, "Olá JSRAIZ")
+        React.createElement(React.Fragment,null, 
+            React.createElement('div',{className : "col-sm-8" }, null),
+            React.createElement('div',{className : "col-sm-4" }, null)
+        )     
     )
 }
 
