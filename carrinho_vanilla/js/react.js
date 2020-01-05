@@ -1,9 +1,16 @@
 
-function AppComponent(){
+function AppComponent(props){
     return (
         React.createElement(React.Fragment,null, 
-            React.createElement('div',{className : "col-sm-8" }, null),
-            React.createElement('div',{className : "col-sm-4" }, null)
+            React.createElement('div',{className : "col-sm-8" }, 
+                React.createElement('div',{className : "row loja" })
+            ),
+            React.createElement('div',{className : "col-sm-4" }, 
+                React.createElement('div',{className : "carrinho" },
+                    React.createElement('div',{className : "carrinho__itens" }),
+                    React.createElement('div',{className : "carrinho__total mt-3 p-3" }),
+                )
+            )
         )     
     )
 }
