@@ -65,11 +65,10 @@ function ProductComponent(produto){
 
 function ListaProdutoComponent({itens}){
     
-    console.log(itens)
     return  (
         React.createElement('div',{className : "row loja" },
-            itens.map(function(){ 
-             //   return React.createElement(ProductComponent)
+            itens.map(function(item){ 
+                return React.createElement(ProductComponent, item )
              })
         )
     )
