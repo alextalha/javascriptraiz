@@ -63,6 +63,48 @@ function ProductComponent(produto){
     )
 }
 
+
+
+
+
+function CarrinhoComponent(props){
+    function valorTotal(carrinhoItens){
+
+        let total = Object.keys(carrinhoItens).reduce(function(acc,valorAtual){
+           return acc +  (carrinhoItens[valorAtual].quantidade * carrinhoItens[valorAtual].preço)  
+        },0)
+
+        return total;
+    }
+
+    return (
+
+        React.createElement('div',{className : "carrinho__itens" },
+            React.createElement('div',{className : "card carrinho__item" },
+                Object.keys(props.itens).map(function(key){
+
+                    return (
+                        React.createElement('div',{className : "card-body" }, 
+                            React.createElement('h5',{ className : "card-title" }, props.itens[key].titulo ),
+                            React.createElement('p',{className : "card-text"}, `Preço unidade: R$ ${props.itens[key].preço} | Quantidade ${props.itens[key].quantidade}` ),
+                            React.createElement('p',{className : "card-text"}, `Valor: R$ ${props.itens[key].preço * props.itens[key].quantidade }` ),
+                            React.createElement('button',{className : "btn btn-danger btn-sm"}, "Remover" ),
+                            
+                            )
+                     
+                    )
+                }),
+
+                React.createElement('div',{className : "carrinho__total mt-2 p-3" },
+                React.createElement('h6',null, "Total: ",
+                    React.createElement('strong',null, `R$ ${valorTotal(props.itens)}`)    
+                    )     
+                )
+            )
+        )
+    )
+}
+
 function ListaProdutoComponent({itens}){
     
     return  (
@@ -76,32 +118,36 @@ function ListaProdutoComponent({itens}){
 
 function AppComponent(props){
 
+    const carrinhoItens = {
+        "1" : {
+            "id" : "1",
+            "imagem" : "https://lorempixel.com/500/300",
+            "titulo" :  "Js Raiz 1",
+            "preço" : 300,
+            "descrição" : "O melhor curso de Javascript 1",
+            "quantidade" : 2
+        },
+        "2" : {
+            "id" : "2",
+            "imagem" : "https://lorempixel.com/500/300",
+            "titulo" :  "Js Raiz 2",
+            "preço" : 400,
+            "descrição" : "O melhor curso de Javascript 2",
+            "quantidade" : 3
+        }
+    }
+
+
     return (
         React.createElement(React.Fragment,null, 
             React.createElement('div',{className : "col-sm-8" }, 
             React.createElement(ListaProdutoComponent,{ itens : produtosListas}),
             ),
             React.createElement('div',{className : "col-sm-4 mb-3" }, 
-                React.createElement('div',{className : "carrinho" },
-                    React.createElement('div',{className : "carrinho__itens" },
-                        React.createElement('div',{className : "card carrinho__item" },
-                            React.createElement('div',{className : "card-body" }, 
-                                React.createElement('h5',{ className : "card-title" }, "JS Raiz para FW" ),
-                                React.createElement('p',{className : "card-text"}, "Preço unidade: R$ 300,00 | Quantidade 2" ),
-                                React.createElement('p',{className : "card-text"}, "Valor: R$ 600,00" ),
-                                React.createElement('button',{className : "btn btn-danger btn-sm"}, "Remover" ),
-                            )
-                        )
-                    ),
-                    React.createElement('div',{className : "carrinho__total mt-2 p-3" },
-                        React.createElement('h6',null, "Total: ",
-                            React.createElement('strong',null, "R$600,00 ")    
-                            )     
-                        )
-                    )
-                )
+            React.createElement(CarrinhoComponent, { itens : carrinhoItens}),      
             )
         )
+    )
     
 }
 
