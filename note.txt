@@ -8,3 +8,11 @@ https://pt-br.reactjs.org/docs/lifting-state-up.html
 
 
 como fazer os componentes se conversarem. lifting-state-up 
+
+
+
+vamos ver sobre composition , sem precisar passar a função por todos os componentes 
+
+
+props são dados estaticos  e state podem ser alteradas 
+
