@@ -1,12 +1,10 @@
-Análise documentação React
+criando eventos no react 
 
-O componente deve ser apenas visual desacoplado de outros components sem regra de negocio 
+dentro do React.createElement adicionamos no segundo parametro um atributo do tipo onClick
 
-gerenciamento de estado que deverá ter as regras de negócio
+precisamos fazer com que os componentes se conversem. porque a pricipio eles não se conversam.
 
-pt-br.reactjs.org/docs/hello-world
+https://pt-br.reactjs.org/docs/lifting-state-up.html
 
-  
-  react é e não é um framework 
 
-  
+como fazer os componentes se conversarem. lifting-state-up 

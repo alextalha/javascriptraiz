@@ -44,28 +44,23 @@ let produtosListas = [
     },
     ]
     
-
-function ProductComponent(produto){
-
+function ProductComponent(props){
+    console.log(props)
     return (
 
         React.createElement('div',{className : "col-sm-4 mb-3" },
             React.createElement('div',{className : "card loja__item " },
-                React.createElement('img',{className : "card-img-top", src: `${produto.imagem}` }),
+                React.createElement('img',{className : "card-img-top", src: `${props.item.imagem}` }),
             React.createElement('div',{className : "card-body" },
-                React.createElement('h5',{className : "card-title" },`${produto.titulo}` ),
-                React.createElement('small',null,`${produto.preço}`),
-                React.createElement('p',{className : "card-text" },`${produto.descrição}`),
-                React.createElement('button',{className : "btn btn-primary" },'Adicionar'),
+                React.createElement('h5',{className : "card-title" },`${props.item.titulo}` ),
+                React.createElement('small',null,`R$ ${props.item.preço}`),
+                React.createElement('p',{className : "card-text" },`${props.item.descrição}`),
+                React.createElement('button',{className : "btn btn-primary", onClick : props.onAddCarrinho },'Adicionar'),
                 )
             )
         )
     )
 }
-
-
-
-
 
 function CarrinhoComponent(props){
     function valorTotal(carrinhoItens){
@@ -105,18 +100,22 @@ function CarrinhoComponent(props){
     )
 }
 
-function ListaProdutoComponent({itens}){
-    
+function ListaProdutoComponent(props){
     return  (
         React.createElement('div',{className : "row loja" },
-            itens.map(function(item){ 
-                return React.createElement(ProductComponent, item )
+            props.itens.map(function(produto){ 
+               
+                return React.createElement(ProductComponent, {item : produto, onAddCarrinho: props.onAddCarrinho } )
              })
         )
     )
 }
 
 function AppComponent(props){
+
+    function addCarrinho(){
+        console.log('oi produto')
+    }
 
     const carrinhoItens = {
         "1" : {
@@ -141,7 +140,7 @@ function AppComponent(props){
     return (
         React.createElement(React.Fragment,null, 
             React.createElement('div',{className : "col-sm-8" }, 
-            React.createElement(ListaProdutoComponent,{ itens : produtosListas}),
+            React.createElement(ListaProdutoComponent,{ itens : produtosListas, onAddCarrinho: addCarrinho}),
             ),
             React.createElement('div',{className : "col-sm-4 mb-3" }, 
             React.createElement(CarrinhoComponent, { itens : carrinhoItens}),      
