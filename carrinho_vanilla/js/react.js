@@ -45,7 +45,7 @@ let produtosListas = [
     ]
     
 function ProductComponent(props){
-    console.log(props)
+
     return (
 
         React.createElement('div',{className : "col-sm-4 mb-3" },
@@ -103,10 +103,7 @@ function CarrinhoComponent(props){
 function ListaProdutoComponent(props){
     return  (
         React.createElement('div',{className : "row loja" },
-            props.itens.map(function(produto){ 
-               
-                return React.createElement(ProductComponent, {item : produto, onAddCarrinho: props.onAddCarrinho } )
-             })
+            props.children
         )
     )
 }
@@ -140,7 +137,11 @@ function AppComponent(props){
     return (
         React.createElement(React.Fragment,null, 
             React.createElement('div',{className : "col-sm-8" }, 
-            React.createElement(ListaProdutoComponent,{ itens : produtosListas, onAddCarrinho: addCarrinho}),
+            React.createElement(ListaProdutoComponent, null, 
+                produtosListas.map(function(produto){ 
+                    return React.createElement(ProductComponent, {item : produto, onAddCarrinho: addCarrinho } )
+                 })
+                ),
             ),
             React.createElement('div',{className : "col-sm-4 mb-3" }, 
             React.createElement(CarrinhoComponent, { itens : carrinhoItens}),      
