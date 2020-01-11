@@ -16,3 +16,13 @@ vamos ver sobre composition , sem precisar passar a função por todos os compon
 
 props são dados estaticos  e state podem ser alteradas 
 
+
+
+
+função bind da função em javascript segura antes de invocar a mesma . 
+
+ex: props.onAddCarrinho.bind(null,prop.itens)
+
+segura o metodo e diz que vai não vai enviar o this e o segundo parametro é justamente o conteudo .
+
+

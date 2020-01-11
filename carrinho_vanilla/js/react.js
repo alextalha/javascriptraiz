@@ -55,7 +55,7 @@ function ProductComponent(props){
                 React.createElement('h5',{className : "card-title" },`${props.item.titulo}` ),
                 React.createElement('small',null,`R$ ${props.item.preço}`),
                 React.createElement('p',{className : "card-text" },`${props.item.descrição}`),
-                React.createElement('button',{className : "btn btn-primary", onClick : props.onAddCarrinho },'Adicionar'),
+                React.createElement('button',{className : "btn btn-primary", onClick : props.onAddCarrinho.bind(null,props.item)  },'Adicionar'),
                 )
             )
         )
@@ -110,8 +110,8 @@ function ListaProdutoComponent(props){
 
 function AppComponent(props){
 
-    function addCarrinho(){
-        console.log('oi produto')
+    function addCarrinho(produto){
+        console.log(produto)
     }
 
     const carrinhoItens = {
