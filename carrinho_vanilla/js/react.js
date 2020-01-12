@@ -76,10 +76,10 @@ function CarrinhoComponent(props){
 
         React.createElement('div',{className : "carrinho__itens" },
             React.createElement('div',{className : "card carrinho__item" },
-                Object.keys(props.itens).map(function(key){
+                Object.keys(props.itens).map(function(key,index){
 
                     return (
-                        React.createElement('div',{className : "card-body" }, 
+                        React.createElement('div',{className : "card-body" , key : `card-body-${index}` }, 
                             React.createElement('h5',{ className : "card-title" }, props.itens[key].titulo ),
                             React.createElement('p',{className : "card-text"}, `Preço unidade: R$ ${props.itens[key].preço} | Quantidade ${props.itens[key].quantidade}` ),
                             React.createElement('p',{className : "card-text"}, `Valor: R$ ${props.itens[key].preço * props.itens[key].quantidade }` ),
@@ -138,8 +138,8 @@ function AppComponent(props){
         React.createElement(React.Fragment,null, 
             React.createElement('div',{className : "col-sm-8" }, 
             React.createElement(ListaProdutoComponent, null, 
-                produtosListas.map(function(produto){ 
-                    return React.createElement(ProductComponent, {item : produto, onAddCarrinho: addCarrinho } )
+                produtosListas.map(function(produto,index){ 
+                    return React.createElement(ProductComponent, {item : produto, onAddCarrinho: addCarrinho , key : `produto-${index}` } )
                  })
                 ),
             ),
