@@ -1,28 +1,13 @@
-criando eventos no react 
-
-dentro do React.createElement adicionamos no segundo parametro um atributo do tipo onClick
-
-precisamos fazer com que os componentes se conversem. porque a pricipio eles não se conversam.
-
-https://pt-br.reactjs.org/docs/lifting-state-up.html
+Introdução ao estado do componente
 
 
-como fazer os componentes se conversarem. lifting-state-up 
+Reatividade
+váriaveis quando alteram quem depende dessas também devem ser atualizadas
 
 
 
-vamos ver sobre composition , sem precisar passar a função por todos os componentes 
+yarn create react-app my-app
 
 
-props são dados estaticos  e state podem ser alteradas 
-
-
-
-
-função bind da função em javascript segura antes de invocar a mesma . 
-
-ex: props.onAddCarrinho.bind(null,prop.itens)
-
-segura o metodo e diz que vai não vai enviar o this e o segundo parametro é justamente o conteudo .
 
 
