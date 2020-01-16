@@ -6,7 +6,7 @@ let produtosListas = [
         "titulo" :  "Js Raiz 1",
         "preço" : 300,
         "descrição" : "O melhor curso de Javascript 1",
-        "quantidade" : 1
+    
     },
     { 
         "id" : "1",
@@ -14,7 +14,7 @@ let produtosListas = [
         "titulo" :  "Js Raiz 2",
         "preço" : 301,
         "descrição" : "O melhor curso de Javascript 2",
-        "quantidade" : 1
+
     },
     { 
         "id" : "2",
@@ -22,7 +22,7 @@ let produtosListas = [
         "titulo" :  "Js Raiz 3",
         "preço" : 302,
         "descrição" : "O melhor curso de Javascript 4",
-        "quantidade" : 1
+      
     },
     { 
         "id" : "3",
@@ -30,15 +30,14 @@ let produtosListas = [
         "titulo" :  "Js Raiz 4",
         "preço" : 303,
         "descrição" : "O melhor curso de Javascript 4",
-        "quantidade" : 1
+
     },
     { 
         "id" : "4",
         "imagem" : "https://lorempixel.com/500/300",
         "titulo" :  "Js Raiz 5",
         "preço" : 304,
-        "descrição" : "O melhor curso de Javascript 5",
-        "quantidade" : 1
+        "descrição" : "O melhor curso de Javascript 5", 
     },
     { 
         "id" : "5",
@@ -46,7 +45,6 @@ let produtosListas = [
         "titulo" :  "Js Raiz 6",
         "preço" : 305,
         "descrição" : "O melhor curso de Javascript 6",
-        "quantidade" : 1
     },
     ]
     
@@ -120,17 +118,27 @@ function AppComponent(props){
     let[carrinhoItens, addItemCarrinho] = React.useState({})
 
     function addCarrinho(produto){
-            console.log(produto)
-            console.log(produto.id)
-            console.log({...carrinhoItens})
+        console.log(produto)
         if(!carrinhoItens[produto.id]){
+
             addItemCarrinho({
                 ...carrinhoItens,
                 [produto.id] : {
                     ...produto,
-                quantidade : ++carrinhoItens[produto.id].quantidade
+                    quantidade: 1
                 }
             })
+
+        }else{
+           
+            addItemCarrinho({
+                ...carrinhoItens,
+                [produto.id] : {
+                    ...produto,
+                    quantidade: ++carrinhoItens[produto.id].quantidade
+                }
+            })
+
         }
     }
 
