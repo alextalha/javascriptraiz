@@ -1,13 +1,24 @@
-Introdução ao estado do componente
+JS >>> AST >> transformer >> JS 
+
+Abstract syntax tree
 
 
-Reatividade
-váriaveis quando alteram quem depende dessas também devem ser atualizadas
+https://astexplorer.net/
+
+https://eslint.org/
 
 
+apos instalar o babel 
+preset conjunto de plugins 
 
-yarn create react-app my-app
+ 
+BabelJS Compilando o JSX
 
 
+npm install --save-dev @babel/core @babel/cli @babel/preset-react
 
 
+.babelrc
+{
+    presets : ["@babel/preset-react"]
+}
