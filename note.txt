@@ -22,3 +22,13 @@ npm install --save-dev @babel/core @babel/cli @babel/preset-react
 {
     presets : ["@babel/preset-react"]
 }
+
+
+
+configurando o webpack
+
+npm install webpack webpack-cli --save-dev
+
+precisamos do loader do babel para rodar no webpack
+
+npm i --save-dev babel-loader
